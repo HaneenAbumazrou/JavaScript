@@ -8,11 +8,38 @@ function startGame() {
     randomNumber = Math.floor(Math.random() * 100) + 1;
     trialsLeft = 10;
     document.getElementById('gameArea').style.display = 'block';
-    document.getElementById('resultMessage').textContent = '';
+    document.getElementById('resultMessage').html = '';
     document.getElementById('trialsLeft').textContent = 'Trials left: 10';
     document.getElementById('userGuess').value = '';
     document.getElementById('userGuess').disabled = false;
     document.getElementById('submitGuess').disabled = false;
+}
+
+function generateRandomNumber(){
+
+
+
+}
+
+
+function hide(isHide){
+
+}
+
+function disable(isDisabled){
+
+}
+
+function setText(cssClass,text){
+    
+}
+
+function setValue(cssClass,text){
+    
+}
+
+function clearScreen(){
+
 }
 
 function submitGuess() {
@@ -33,7 +60,43 @@ function submitGuess() {
         } else {
             document.getElementById('resultMessage').textContent = 'Your guess is less than the correct number.';
         }
-        document.getElementById('trialsLeft').textContent = `Trials left: ${trialsLeft}`;
+     
     }
+
+    document.getElementById('trialsLeft').textContent = `Trials left: ${trialsLeft}`;
+}
+
+en-statemstns.js
+ar-statements.js
+
+let translationsEN={
+    gessingGame:"gissing Game"
+}
+
+
+let translationsAR={
+    gessingGame:"لعبة التحزير"
+}
+
+
+// take current langualge from local storage, if not exist, default is english
+let currentLanguage=languages.en;
+
+let translations=translationsEN;
+
+function loadTranslation(){
+    if (currentLanguage) {
+        translations=translationsEN;
+    }
+    else {
+        translations=translationsAR;
+    }
+}
+
+
+
+let languages={
+    en:0,
+    ar:1
 }
 

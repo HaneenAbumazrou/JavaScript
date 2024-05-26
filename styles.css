@@ -1,4 +1,4 @@
-body {
+.page-container {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #72edf2 10%, #5151e5 100%);
     display: flex;
