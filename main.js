@@ -1,39 +1,70 @@
 let randomNumber;
 let trialsLeft = 10;
 
-document.getElementById('startButton').addEventListener('click', startGame);
-document.getElementById('submitGuess').addEventListener('click', submitGuess);
+function init() {
+    document.querySelector('.startButton').addEventListener('click', startGame);
+    document.querySelector('.submitGuess').addEventListener('click', submitGuess);
+    startGame();
+}
 
 function startGame() {
-    randomNumber = Math.floor(Math.random() * 100) + 1;
+    randomNumber = generateRandomNumber();
     trialsLeft = 10;
-    document.getElementById('gameArea').style.display = 'block';
-    document.getElementById('resultMessage').textContent = '';
-    document.getElementById('trialsLeft').textContent = 'Trials left: 10';
-    document.getElementById('userGuess').value = '';
-    document.getElementById('userGuess').disabled = false;
-    document.getElementById('submitGuess').disabled = false;
+    hide('.gameArea', false);
+    setText('.resultMessage', '');
+    setText('.trialsLeft', 'Trials left: 10');
+    setValue('.userGuess', '');
+    disable('.userGuess', false);
+    disable('.submitGuess', false);
+}
+
+function generateRandomNumber() {
+    return Math.floor(Math.random() * 100) + 1;
+}
+
+function hide(className, isHide) {
+    document.querySelector(className).style.display = isHide ? 'none' : 'block';
+}
+
+function disable(className, isDisabled) {
+    document.querySelector(className).disabled = isDisabled;
+}
+
+function setText(className, text) {
+    document.querySelector(className).textContent = text;
+}
+
+function setValue(className, value) {
+    document.querySelector(className).value = value;
+}
+
+function clearScreen() {
+    setText('.resultMessage', '');
+    setValue('.userGuess', '');
 }
 
 function submitGuess() {
-    const userGuess = parseInt(document.getElementById('userGuess').value);
+    const userGuess = parseInt(document.querySelector('.userGuess').value);
     trialsLeft--;
 
     if (userGuess === randomNumber) {
-        document.getElementById('resultMessage').textContent = 'Congratulations! You guessed the correct number!';
-        document.getElementById('userGuess').disabled = true;
-        document.getElementById('submitGuess').disabled = true;
+        setText('.resultMessage', 'Congratulations! You guessed the correct number!');
+        disable('.userGuess', true);
+        disable('.submitGuess', true);
     } else if (trialsLeft === 0) {
-        document.getElementById('resultMessage').textContent = `Game Over! The correct number was ${randomNumber}.`;
-        document.getElementById('userGuess').disabled = true;
-        document.getElementById('submitGuess').disabled = true;
+        setText('.resultMessage', `Game Over! The correct number was ${randomNumber}.`);
+        disable('.userGuess', true);
+        disable('.submitGuess', true);
     } else {
         if (userGuess > randomNumber) {
-            document.getElementById('resultMessage').textContent = 'Your guess is larger than the correct number.';
+            setText('.resultMessage', 'Your guess is larger than the correct number.');
         } else {
-            document.getElementById('resultMessage').textContent = 'Your guess is less than the correct number.';
+            setText('.resultMessage', 'Your guess is less than the correct number.');
         }
-        document.getElementById('trialsLeft').textContent = `Trials left: ${trialsLeft}`;
     }
+
+    setText('.trialsLeft', `Trials left: ${trialsLeft}`);
 }
 
+
+window.onload = init;
