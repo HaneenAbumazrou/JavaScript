@@ -20,7 +20,7 @@ h1 {
     color: #333333;
 }
 
-.btn {
+.startButton,.submitGuess {
     background-color: #5151e5;
     color: white;
     border: none;
@@ -31,16 +31,16 @@ h1 {
     transition: background-color 0.3s;
 }
 
-.btn:hover {
+.startButton:hover, .submitGuess:hover {
     background-color: #4141c5;
 }
 
-.game-area {
+.gameArea {
     display: none;
     margin-top: 20px;
 }
 
-.input-box {
+.userGuess {
     padding: 10px;
     font-size: 16px;
     border: 2px solid #ddd;
@@ -50,12 +50,13 @@ h1 {
     box-sizing: border-box;
 }
 
-.result-message {
+.resultMessage {
     font-size: 18px;
     margin-top: 20px;
 }
 
-.trials-left {
+.trialsLeft {
     font-size: 16px;
     margin-top: 10px;
 }
+

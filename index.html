@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page-container">
-    <div class="container">
-        <h1 data-translte="GuessingGame">Guessing Game</h1>
-        <button id="startButton" class="btn">Start Game</button>
-        <div id="gameArea" class="game-area">
-            <p>You have 10 trials to guess the number between 1 and 100.</p>
-            <input type="number" id="userGuess" placeholder="Enter your guess" class="input-box">
-            <button id="submitGuess" class="btn">Submit Guess</button>
-            <p id="resultMessage" class="result-message"></p>
-            <p id="trialsLeft" class="trials-left">Trials left: <span>10</span></p>
+    <div class="page-container">
+        <div class="container">
+            <h1 data-translate="GuessingGame">Guessing Game</h1>
+            <button class="startButton">Start Game</button>
+            <div class="gameArea">
+                <p>You have 10 trials to guess the number between 1 and 100.</p>
+                <input type="number" class="userGuess" placeholder="Enter your guess">
+                <button class="submitGuess">Submit Guess</button>
+                <p class="resultMessage"></p>
+                <p class="trialsLeft">Trials left: <span>10</span></p>
+            </div>
         </div>
-    </div>
-   </div>
+       </div>
     <script src="main.js"></script>
 </body>
 </html>
